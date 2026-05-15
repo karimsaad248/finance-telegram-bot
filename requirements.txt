@@ -1,0 +1,7 @@
+python-telegram-bot==20.7
+gspread==6.1.2
+google-auth==2.29.0
+google-generativeai==0.6.0
+PyMuPDF==1.24.3
+Pillow==10.3.0
+python-dotenv==1.0.1
