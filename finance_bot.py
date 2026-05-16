@@ -22,7 +22,7 @@ logging.basicConfig(format="%(asctime)s | %(levelname)s | %(message)s", level=lo
 log = logging.getLogger(__name__)
 
 BOT_TOKEN       = os.getenv("BOT_TOKEN", "")
-ALLOWED_USER_ID = int(os.getenv("ALLOWED_USER_ID", "0"))
+ALLOWED_USER_IDS = set(int(x.strip()) for x in os.getenv("ALLOWED_USER_IDS", "0").split(",") if x.strip().isdigit())
 GROQ_API_KEY    = os.getenv("GROQ_API_KEY", "")
 SPREADSHEET_ID  = "1YlY7Mbmpfq64aLGNLmpk-6kaf2tLX5Tok5JvNiyPyM4"
 SHEET_TAB       = os.getenv("SHEET_TAB", "Database")
@@ -276,7 +276,7 @@ def kb_edit(): return InlineKeyboardMarkup([
      InlineKeyboardButton("Category",      callback_data="edit:category")]])
 
 # ── Conversation flow ─────────────────────────────────────────
-def _allowed(uid): return ALLOWED_USER_ID==0 or uid==ALLOWED_USER_ID
+def _allowed(uid): return 0 in ALLOWED_USER_IDS or uid in ALLOWED_USER_IDS
 
 async def advance(uid, ctx, chat_id):
     t = pending[uid]
