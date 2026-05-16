@@ -276,7 +276,7 @@ def kb_edit(): return InlineKeyboardMarkup([
      InlineKeyboardButton("Category",      callback_data="edit:category")]])
 
 # ── Conversation flow ─────────────────────────────────────────
-def _allowed(uid): return 0 in ALLOWED_USER_IDS or uid in ALLOWED_USER_IDS
+def _allowed(uid): return ALLOWED_USER_ID==0 or uid==ALLOWED_USER_ID
 
 async def advance(uid, ctx, chat_id):
     t = pending[uid]
