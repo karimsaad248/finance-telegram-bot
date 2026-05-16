@@ -435,7 +435,7 @@ async def handle_callback(u,c):
 
 # ── Entry point ───────────────────────────────────────────────
 def main():
-    log.info("Bot starting — ALLOWED_USER_ID=%s SHEET_TAB=%s", ALLOWED_USER_ID, SHEET_TAB)
+    log.info("Bot starting — ALLOWED_USER_IDS=%s SHEET_TAB=%s", ALLOWED_USER_IDS, SHEET_TAB)
     app=Application.builder().token(BOT_TOKEN).build()
     app.add_handler(CommandHandler("start",   cmd_start))
     app.add_handler(CommandHandler("whoami",  cmd_whoami))
