@@ -140,7 +140,7 @@ _SYSTEM = (
 class GeminiParser:
     def __init__(self):
         genai.configure(api_key=GEMINI_API_KEY)
-        self.model = genai.GenerativeModel("gemini-2.0-flash")
+        self.model = genai.GenerativeModel("gemini-1.5-flash")
 
     def _today(self): return datetime.now().strftime("%d-%b-%y")
 
